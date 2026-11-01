@@ -1,5 +1,6 @@
 import about from "@/assets/icons/about.png";
 import arrow from "@/assets/icons/arrow.png";
+import cocktails from "@/assets/icons/cocktails.png";
 import explore from "@/assets/icons/explore.png";
 import home from "@/assets/icons/home.png";
 import logo from "@/assets/icons/logo.png";
@@ -20,4 +21,5 @@ export const icons = {
     play,
     arrow,
     about,
+    cocktails,
 };

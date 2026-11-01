@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
     Image,
     Linking,
@@ -10,27 +10,29 @@ import {
     useWindowDimensions,
     View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import {
     AntDesign,
     Feather,
     FontAwesome5,
+    FontAwesome6,
     Ionicons,
     MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
+import { applications } from "@/constants/applications";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { versions } from "@/constants/versions";
-import { useState } from "react";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const About = () => {
     const { width, height } = useWindowDimensions();
     const isLandscape = width > height;
-    const [modalVisible, setModalVisible] = useState(false);
-    const router = useRouter();
-    const insets = useSafeAreaInsets();
+    const [modalReleaseVisible, setModalReleaseVisible] = useState(false);
+    const insetsRelease = useSafeAreaInsets();
+    const [modalAppsVisible, setModalAppsVisible] = useState(false);
+    const insetsApps = useSafeAreaInsets();
 
     const shareApp = async () => {
         try {
@@ -62,25 +64,10 @@ const About = () => {
                         : { paddingBottom: 40 }),
                 }}
             >
-                {/* <View className="relative flex-row items-center justify-center">
-                    <Pressable
-                        onPress={() => {
-                            router.back();
-                        }}
-                        className="absolute left-0 p-3 mt-10"
-                    >
-                        <Ionicons
-                            name="caret-back-sharp"
-                            size={24}
-                            color="#A8B5DB"
-                        />
-                    </Pressable> */}
-
                 <Image
                     source={icons.logo}
                     className="w-12 h-12 my-12 mx-auto"
                 />
-                {/* </View> */}
 
                 <View className="flex-row items-center my-8 pb-5 border-b border-light-200">
                     <Image source={images.logo} className="w-14 h-14" />
@@ -96,12 +83,12 @@ const About = () => {
                     </View>
                 </View>
 
-                {/* <Pressable
-                    onPress={() =>
-                        Linking.openURL(
-                            "https://play.google.com/store/apps/details?id=com.ttsaryanski.cocktails",
-                        )
-                    }
+                <Pressable
+                    // onPress={() =>
+                    //     Linking.openURL(
+                    //         "https://play.google.com/store/apps/details?id=com.ttsaryanski.cocktails",
+                    //     )
+                    // }
                     className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
                 >
                     <MaterialCommunityIcons
@@ -113,7 +100,14 @@ const About = () => {
                     <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
                         Rate "Meals - A Delicious Journey" on Google Play
                     </Text>
-                </Pressable> */}
+
+                    <AntDesign
+                        name="caret-right"
+                        size={24}
+                        color="#A8B5DB"
+                        className="ml-auto mr-2"
+                    />
+                </Pressable>
 
                 <Pressable
                     onPress={shareApp}
@@ -124,10 +118,17 @@ const About = () => {
                     <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
                         Share "Meals - A Delicious Journey"
                     </Text>
+
+                    <AntDesign
+                        name="caret-right"
+                        size={24}
+                        color="#A8B5DB"
+                        className="ml-auto mr-2"
+                    />
                 </Pressable>
 
                 <Pressable
-                    onPress={() => setModalVisible(true)}
+                    onPress={() => setModalReleaseVisible(true)}
                     className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
                 >
                     <MaterialCommunityIcons
@@ -139,18 +140,27 @@ const About = () => {
                     <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
                         Release Notes
                     </Text>
+
+                    <AntDesign
+                        name="caret-right"
+                        size={24}
+                        color="#A8B5DB"
+                        className="ml-auto mr-2"
+                    />
                 </Pressable>
                 <Modal
-                    visible={modalVisible}
+                    visible={modalReleaseVisible}
                     statusBarTranslucent
                     navigationBarTranslucent
-                    onRequestClose={() => setModalVisible(!modalVisible)}
+                    onRequestClose={() =>
+                        setModalReleaseVisible(!modalReleaseVisible)
+                    }
                 >
                     <View
                         className="flex-1 bg-dark-100 items-center p-2"
                         style={{
-                            paddingTop: insets.top,
-                            paddingBottom: insets.bottom,
+                            paddingTop: insetsRelease.top,
+                            paddingBottom: insetsRelease.bottom,
                         }}
                     >
                         <Text className="text-lg text-light-200 font-bold my-4">
@@ -177,7 +187,115 @@ const About = () => {
                         </ScrollView>
 
                         <Pressable
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() =>
+                                setModalReleaseVisible(!modalReleaseVisible)
+                            }
+                            className="my-4 bg-transparent p-3 rounded-full"
+                        >
+                            <AntDesign
+                                name="close-circle"
+                                size={24}
+                                color="#A8B5DB"
+                            />
+                        </Pressable>
+                    </View>
+                </Modal>
+
+                <Pressable
+                    onPress={() =>
+                        Linking.openURL(
+                            "https://ttsaryanski.github.io/Meals-PrivacyPolicy/",
+                        )
+                    }
+                    className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
+                >
+                    <MaterialCommunityIcons
+                        name="shield-link-variant-outline"
+                        size={26}
+                        color="#A8B5DB"
+                    />
+
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                        Privacy Policy
+                    </Text>
+
+                    <Ionicons
+                        name="open-outline"
+                        size={20}
+                        color="#A8B5DB"
+                        className="ml-auto mr-2"
+                    />
+                </Pressable>
+
+                <Pressable
+                    onPress={() => setModalAppsVisible(true)}
+                    className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
+                >
+                    <FontAwesome6
+                        name="google-play"
+                        size={24}
+                        color="#A8B5DB"
+                    />
+
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                        Try more apps
+                    </Text>
+
+                    <AntDesign
+                        name="caret-right"
+                        size={24}
+                        color="#A8B5DB"
+                        className="ml-auto mr-2"
+                    />
+                </Pressable>
+                <Modal
+                    visible={modalAppsVisible}
+                    statusBarTranslucent
+                    navigationBarTranslucent
+                    onRequestClose={() =>
+                        setModalAppsVisible(!modalAppsVisible)
+                    }
+                >
+                    <View
+                        className={`flex-1 bg-dark-100 items-center py-2 ${isLandscape ? "px-16" : "px-2"}`}
+                        style={{
+                            paddingTop: insetsApps.top,
+                            paddingBottom: insetsApps.bottom,
+                        }}
+                    >
+                        <Text className="text-lg text-light-200 font-bold my-4">
+                            More Apps from this Developer
+                        </Text>
+
+                        <ScrollView className="flex-1">
+                            {applications.map((app) => (
+                                <Pressable
+                                    key={app.id}
+                                    onPress={() => Linking.openURL(app.url)}
+                                    className="flex-row w-full items-center my-8 px-2 pb-5 border-b border-light-200"
+                                >
+                                    <Image
+                                        source={icons[app.icon]}
+                                        className="w-10 h-10"
+                                    />
+                                    <Text className=" text-lg text-light-200 font-bold ml-4">
+                                        {app.name}
+                                    </Text>
+
+                                    <AntDesign
+                                        name="caret-right"
+                                        size={24}
+                                        color="#A8B5DB"
+                                        className="ml-auto mr-2"
+                                    />
+                                </Pressable>
+                            ))}
+                        </ScrollView>
+
+                        <Pressable
+                            onPress={() =>
+                                setModalAppsVisible(!modalAppsVisible)
+                            }
                             className="my-4 bg-transparent p-3 rounded-full"
                         >
                             <AntDesign
@@ -195,7 +313,7 @@ const About = () => {
                             "https://ttsaryanski.github.io/Portfolio/",
                         )
                     }
-                    className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
+                    className={`flex-row items-center my-8 px-2 pb-5 border-b border-light-200 ${isLandscape ? " mb-20" : "mb-36"}`}
                 >
                     <FontAwesome5
                         name="user-circle"
@@ -205,32 +323,6 @@ const About = () => {
 
                     <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
                         Author
-                    </Text>
-
-                    <Ionicons
-                        name="open-outline"
-                        size={20}
-                        color="#A8B5DB"
-                        className="ml-auto mr-2"
-                    />
-                </Pressable>
-
-                <Pressable
-                    onPress={() =>
-                        Linking.openURL(
-                            "https://ttsaryanski.github.io/Meals-PrivacyPolicy/",
-                        )
-                    }
-                    className={`flex-row items-center my-8 px-2 pb-5 border-b border-light-200 ${isLandscape ? " mb-20" : "mb-36"}`}
-                >
-                    <MaterialCommunityIcons
-                        name="shield-link-variant-outline"
-                        size={26}
-                        color="#A8B5DB"
-                    />
-
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
-                        Privacy Policy
                     </Text>
 
                     <Ionicons

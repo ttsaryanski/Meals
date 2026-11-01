@@ -123,3 +123,14 @@ interface Version {
 interface Versions {
     versions: Version[];
 }
+
+interface App {
+    id: string;
+    name: string;
+    url: string;
+    icon: keyof typeof import("@/constants/icons").icons;
+}
+
+interface Apps {
+    apps: App[];
+}
