@@ -1,0 +1,60 @@
+{
+    "expo": {
+        "name": "Meals",
+        "slug": "meals",
+        "version": "1.0.1",
+        "orientation": "default",
+        "icon": "./assets/images/logo.png",
+        "scheme": "meals",
+        "userInterfaceStyle": "automatic",
+        "ios": {
+            "icon": "./assets/expo.icon"
+        },
+        "android": {
+            "package": "com.ttsaryanski.meals",
+            "adaptiveIcon": {
+                "backgroundImage": "./assets/images/meals_backgroundImage.png",
+                "foregroundImage": "./assets/images/meals_foregroundImage.png",
+                "monochromeImage": "./assets/images/meals_monochromeImage.png"
+            },
+            "predictiveBackGestureEnabled": false
+        },
+        "web": {
+            "output": "static",
+            "favicon": "./assets/images/logo.png"
+        },
+        "plugins": [
+            "expo-router",
+            [
+                "expo-splash-screen",
+                {
+                    "backgroundColor": "#030014",
+                    "image": "./assets/images/logo.png",
+                    "imageWidth": 76
+                }
+            ],
+            "expo-image",
+            "expo-web-browser",
+            [
+                "expo-build-properties",
+                {
+                    "android": {
+                        "enableMinifyInReleaseBuilds": true,
+                        "enableShrinkResourcesInReleaseBuilds": true
+                    }
+                }
+            ]
+        ],
+        "experiments": {
+            "typedRoutes": true,
+            "reactCompiler": true
+        },
+        "extra": {
+            "router": {},
+            "eas": {
+                "projectId": "6b32e7cc-e7d0-4663-8762-e3a9fefcea6b"
+            }
+        },
+        "owner": "mmmongoose"
+    }
+}
