@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import {
     ActivityIndicator,
@@ -28,6 +28,9 @@ const Ingredient = () => {
     const router = useRouter();
     const listRef = useRef<FlatList>(null);
     const letterListRef = useRef<FlatList>(null);
+    const { ingredient } = useLocalSearchParams<{
+        ingredient: string;
+    }>();
     const [ingredients, setIngredients] = useState<Ingredients>({ meals: [] });
     const [showScrollToTop, setShowScrollToTop] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState("A");
@@ -43,14 +46,16 @@ const Ingredient = () => {
 
     useEffect(() => {
         const meals = rawIngredients?.meals ?? [];
-        const filteredMeals = selectedLetter
-            ? meals.filter((item) =>
-                  item.strIngredient.toUpperCase().startsWith(selectedLetter),
-              )
-            : meals;
+        const filteredMeals = ingredient
+            ? meals.filter((item) => item.strIngredient === ingredient)
+            : selectedLetter
+              ? meals.filter((item) =>
+                    item.strIngredient.toUpperCase().startsWith(selectedLetter),
+                )
+              : meals;
 
         setIngredients({ meals: filteredMeals });
-    }, [selectedLetter, rawIngredients]);
+    }, [selectedLetter, rawIngredients, ingredient]);
 
     const handleRefresh = async () => {
         await refetch();

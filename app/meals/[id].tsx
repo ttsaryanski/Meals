@@ -239,7 +239,7 @@ const Details = () => {
                             </Link>
 
                             <Link
-                                href={`/explore/country?country=${details?.strCountry}`}
+                                href={`/(tabs)/explore/country?country=${details?.strCountry}`}
                                 asChild
                             >
                                 <Pressable className="flex-1 w-full flex-row items-center justify-between">
@@ -266,32 +266,46 @@ const Details = () => {
                             </Text>
 
                             {ingredients.map((ingredient, index) => (
-                                <View
+                                <Link
                                     key={index}
                                     className="flex w-full flex-row items-center gap-5"
+                                    href={`/explore/ingredient?ingredient=${ingredient.name}`}
+                                    asChild
                                 >
-                                    <View className="flex flex-col basis-1/2 gap-4">
-                                        {ingredient.measure && (
-                                            <Text className="text-light-200 font-normal text-base">
-                                                {ingredient.measure}
+                                    <Pressable className="flex flex-1 flex-row items-center justify-between">
+                                        <View className="flex flex-col basis-1/3 gap-4">
+                                            {ingredient.measure && (
+                                                <Text className="text-light-200 font-normal text-base">
+                                                    {ingredient.measure}
+                                                </Text>
+                                            )}
+                                            <Text className="text-light-200 font-bold text-base">
+                                                {ingredient.name}
                                             </Text>
-                                        )}
-                                        <Text className="text-light-200 font-bold text-base">
-                                            {ingredient.name}
-                                        </Text>
-                                    </View>
+                                        </View>
 
-                                    <Image
-                                        source={{
-                                            uri: `https://www.themealdb.com/images/ingredients/${extractIngredientNames(ingredient.name)}.png/small`,
-                                        }}
-                                        className="w-[100px] h-[100px] self-baseline-last"
-                                        contentFit="none"
-                                        transition={200}
-                                        cachePolicy="memory-disk"
-                                        alt={`${ingredient.name} image`}
-                                    />
-                                </View>
+                                        <Image
+                                            source={{
+                                                uri: `https://www.themealdb.com/images/ingredients/${extractIngredientNames(ingredient.name)}.png/small`,
+                                            }}
+                                            className="w-[100px] h-[100px]"
+                                            contentFit="none"
+                                            transition={200}
+                                            cachePolicy="memory-disk"
+                                            alt={`${ingredient.name} image`}
+                                        />
+
+                                        <AntDesign
+                                            style={{
+                                                alignSelf: "center",
+                                                marginRight: 10,
+                                            }}
+                                            name="caret-right"
+                                            size={24}
+                                            color="#A8B5DB"
+                                        />
+                                    </Pressable>
+                                </Link>
                             ))}
 
                             <MealInfo

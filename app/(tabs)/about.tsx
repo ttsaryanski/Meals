@@ -97,7 +97,7 @@ const About = () => {
                         color="#A8B5DB"
                     />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Rate "Meals - A Delicious Journey" on Google Play
                     </Text>
 
@@ -115,7 +115,7 @@ const About = () => {
                 >
                     <Feather name="share-2" size={26} color="#A8B5DB" />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Share "Meals - A Delicious Journey"
                     </Text>
 
@@ -137,7 +137,7 @@ const About = () => {
                         color="#A8B5DB"
                     />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Release Notes
                     </Text>
 
@@ -164,7 +164,7 @@ const About = () => {
                         }}
                     >
                         <Text className="text-lg text-light-200 font-bold my-4">
-                            Release Notes
+                            Release Notes:
                         </Text>
 
                         <ScrollView className="flex-1">
@@ -215,7 +215,7 @@ const About = () => {
                         color="#A8B5DB"
                     />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Privacy Policy
                     </Text>
 
@@ -237,7 +237,7 @@ const About = () => {
                         color="#A8B5DB"
                     />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Try more apps
                     </Text>
 
@@ -321,7 +321,7 @@ const About = () => {
                         color="#A8B5DB"
                     />
 
-                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4">
+                    <Text className="flex-1 text-lg text-light-200 font-bold ml-4 mr-10">
                         Author
                     </Text>
 

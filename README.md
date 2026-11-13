@@ -2,6 +2,10 @@
 
 Discover meals, explore recipes, and keep your favorite dishes close at hand. **Meals** helps you find something to cook, whether you know what you are looking for or just need inspiration.
 
+## Get the app
+
+[Meals on Google Play](https://play.google.com/store/apps/details?id=com.ttsaryanski.meals)
+
 ## Features
 
 - Browse a selection of random meals and see what's trending.
@@ -13,20 +17,20 @@ Discover meals, explore recipes, and keep your favorite dishes close at hand. **
 
 ## Screenshots
 
-| Home | Explore | Search by name |
-|---|---|---|
+| Home                                                                                                 | Explore                                                                     | Search by name                                                                             |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | <img src="assets/screenshots/home.jpg" alt="Home screen with trending and random meals" width="220"> | <img src="assets/screenshots/explore.jpg" alt="Explore screen" width="220"> | <img src="assets/screenshots/search_by_word.jpg" alt="Search recipes by name" width="220"> |
 
-| Search by first letter | Explore by country | Explore by category |
-|---|---|---|
+| Search by first letter                                                                                     | Explore by country                                                                                 | Explore by category                                                                                  |
+| ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | <img src="assets/screenshots/search_by_first_letter.jpg" alt="Search recipes by first letter" width="220"> | <img src="assets/screenshots/explore_by_country.jpg" alt="Explore recipes by country" width="220"> | <img src="assets/screenshots/explore_by_category.jpg" alt="Explore recipes by category" width="220"> |
 
-| Browse ingredients | Ingredient results | Recipe details |
-|---|---|---|
+| Browse ingredients                                                                                  | Ingredient results                                                                                                   | Recipe details                                                                                     |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | <img src="assets/screenshots/explore_by_ingredients_list.jpg" alt="Browse ingredients" width="220"> | <img src="assets/screenshots/explore_by_ingredient_details.jpg" alt="Recipes for a selected ingredient" width="220"> | <img src="assets/screenshots/details_no_saved.jpg" alt="Recipe details before saving" width="220"> |
 
-| Saved recipe details | Saved recipes | About |
-|---|---|---|
+| Saved recipe details                                                                                 | Saved recipes                                                            | About                                                                    |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | <img src="assets/screenshots/details_saved.jpg" alt="Recipe details for a saved recipe" width="220"> | <img src="assets/screenshots/saved.jpg" alt="Saved recipes" width="220"> | <img src="assets/screenshots/about.jpg" alt="About the app" width="220"> |
 
 ## Built with
@@ -49,33 +53,33 @@ Discover meals, explore recipes, and keep your favorite dishes close at hand. **
 
 1. Install the project dependencies:
 
-   ```sh
-   npm install
-   ```
+    ```sh
+    npm install
+    ```
 
 2. Create a local environment file by copying `.env.example` to `.env`:
 
-   **Windows PowerShell**
+    **Windows PowerShell**
 
-   ```powershell
-   Copy-Item .env.example .env
-   ```
+    ```powershell
+    Copy-Item .env.example .env
+    ```
 
-   **macOS / Linux**
+    **macOS / Linux**
 
-   ```sh
-   cp .env.example .env
-   ```
+    ```sh
+    cp .env.example .env
+    ```
 
 3. Set the values in `.env`:
 
-   ```dotenv
-   EXPO_PUBLIC_BASE_URL=https://www.themealdb.com/api/json/v2
-   EXPO_PUBLIC_API_KEY=<your-TheMealDB-api-key>
-   EXPO_PUBLIC_TRENDING_API_URL=<your-trending-service-base-url>
-   ```
+    ```dotenv
+    EXPO_PUBLIC_BASE_URL=https://www.themealdb.com/api/json/v2
+    EXPO_PUBLIC_API_KEY=<your-TheMealDB-api-key>
+    EXPO_PUBLIC_TRENDING_API_URL=<your-trending-service-base-url>
+    ```
 
-   The trending service base URL should not include `/top` or `/increment`; the app appends those paths. Variables prefixed with `EXPO_PUBLIC_` are included in the client app, so only use API credentials intended to be public.
+    The trending service base URL should not include `/top` or `/increment`; the app appends those paths. Variables prefixed with `EXPO_PUBLIC_` are included in the client app, so only use API credentials intended to be public.
 
 ### Run the app
 

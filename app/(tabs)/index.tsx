@@ -61,7 +61,7 @@ export default function Index() {
                         tintColor="#AB8BFF"
                     />
                 }
-                data={meals?.meals}
+                data={meals?.meals ?? []}
                 renderItem={({ item }) => <MealCard {...item} />}
                 keyExtractor={(item) => item.idMeal.toString()}
                 numColumns={2}
@@ -86,7 +86,7 @@ export default function Index() {
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
                                     className="mb-4 mt-3"
-                                    data={trendingMeals}
+                                    data={trendingMeals ?? []}
                                     contentContainerStyle={{
                                         paddingRight: 20,
                                     }}
