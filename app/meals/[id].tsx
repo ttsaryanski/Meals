@@ -126,7 +126,6 @@ const Details = () => {
                     "Instructions:",
                     details?.strInstructions || "No instructions available.",
                     "Meals - A Delicious Journey",
-                    "...",
                     "https://play.google.com/store/apps/details?id=com.ttsaryanski.meals",
                 ].join("\n\n"),
             });
