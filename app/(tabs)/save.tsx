@@ -14,7 +14,7 @@ import {
 import useFetch from "@/hooks/useFetch";
 import { deleteAllLocalMeals, getLocalSavedMeals } from "@/utils/storage";
 
-import SavedMealCard from "@/components/saved-meal-card";
+import SavedMealCard from "@/components/meal-saved-card";
 
 import { Ionicons } from "@expo/vector-icons";
 

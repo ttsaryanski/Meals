@@ -22,7 +22,17 @@ export default function RootLayout() {
                 />
 
                 <Stack.Screen
+                    name="ingredients/list/[ingredient]"
+                    options={{ headerShown: false }}
+                />
+
+                <Stack.Screen
                     name="categories/[category]"
+                    options={{ headerShown: false }}
+                />
+
+                <Stack.Screen
+                    name="countries/[country]"
                     options={{ headerShown: false }}
                 />
             </Stack>

@@ -127,7 +127,7 @@ const Details = () => {
                     details?.strInstructions || "No instructions available.",
                     "Meals - A Delicious Journey",
                     "...",
-                    // "https://play.google.com/store/apps/details?id=com.ttsaryanski.cocktails",
+                    "https://play.google.com/store/apps/details?id=com.ttsaryanski.meals",
                 ].join("\n\n"),
             });
         } catch (error) {
@@ -217,7 +217,12 @@ const Details = () => {
                             </View>
 
                             <Link
-                                href={`/categories/${details?.strCategory}`}
+                                href={{
+                                    pathname: "/categories/[category]",
+                                    params: {
+                                        category: details?.strCategory ?? "",
+                                    },
+                                }}
                                 asChild
                             >
                                 <Pressable className="flex-1 w-full flex-row items-center justify-between">
@@ -239,7 +244,12 @@ const Details = () => {
                             </Link>
 
                             <Link
-                                href={`/(tabs)/explore/country?country=${details?.strCountry}`}
+                                href={{
+                                    pathname: "/countries/[country]",
+                                    params: {
+                                        country: details?.strCountry ?? "",
+                                    },
+                                }}
                                 asChild
                             >
                                 <Pressable className="flex-1 w-full flex-row items-center justify-between">
@@ -269,7 +279,13 @@ const Details = () => {
                                 <Link
                                     key={index}
                                     className="flex w-full flex-row items-center gap-5"
-                                    href={`/explore/ingredient?ingredient=${ingredient.name}`}
+                                    href={{
+                                        pathname:
+                                            "/ingredients/list/[ingredient]",
+                                        params: {
+                                            ingredient: ingredient.name ?? "",
+                                        },
+                                    }}
                                     asChild
                                 >
                                     <Pressable className="flex flex-1 flex-row items-center justify-between">

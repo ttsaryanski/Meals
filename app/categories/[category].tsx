@@ -13,7 +13,7 @@ import {
 import useFetch from "@/hooks/useFetch";
 import { mealServices } from "@/services/mealServices";
 
-import SavedMealCard from "@/components/saved-meal-card";
+import SavedMealCard from "@/components/meal-saved-card";
 
 import { Ionicons } from "@expo/vector-icons";
 

@@ -39,7 +39,7 @@ const About = () => {
             await Share.share({
                 message: [
                     "Meals - A Delicious Journey",
-                    //"https://play.google.com/store/apps/details?id=com.ttsaryanski.cocktails",
+                    "https://play.google.com/store/apps/details?id=com.ttsaryanski.meals",
                 ].join("\n\n"),
             });
         } catch (error) {
@@ -84,11 +84,11 @@ const About = () => {
                 </View>
 
                 <Pressable
-                    // onPress={() =>
-                    //     Linking.openURL(
-                    //         "https://play.google.com/store/apps/details?id=com.ttsaryanski.cocktails",
-                    //     )
-                    // }
+                    onPress={() =>
+                        Linking.openURL(
+                            "https://play.google.com/store/apps/details?id=com.ttsaryanski.meals",
+                        )
+                    }
                     className="flex-row items-center my-8 px-2 pb-5 border-b border-light-200"
                 >
                     <MaterialCommunityIcons

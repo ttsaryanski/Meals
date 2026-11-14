@@ -12,7 +12,7 @@ import { mealServices } from "@/services/mealServices";
 import { trendServices } from "@/services/trendServices";
 
 import MealCard from "@/components/meal-card";
-import TrendingMealCard from "@/components/trending-meal-card";
+import TrendingMealCard from "@/components/meal-trending-card";
 
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
